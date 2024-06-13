@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en-US" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href='/frontend/web/images/nta-logo.png'>
+        <title></title>
+    <meta name="csrf-param" content="_csrf-frontend">
+<meta name="csrf-token" content="XQZPy7YOEl6Gn11L7hFJDQhPQSMXVMR9eqgLLzCWlIcEdCmc_XhGbtmvCCOvVx1CQD55UUEmlQkbnT5OfsL20A==">
+
+<link href="/frontend/web/assets/3006d9a9/css/simple-loading.min.css" rel="stylesheet">
+<link href="/frontend/web/assets/f7e278a4/dist/css/bootstrap.css" rel="stylesheet">
+<link href="/frontend/web/css/demo.css" rel="stylesheet">
+<link href="/frontend/web/css/smart_wizard_all.css" rel="stylesheet">
+<link href="/frontend/web/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/frontend/web/lib/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet">
+<link href="/frontend/web/lib/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet">
+<link href="/frontend/web/lib/bootstrap/css/bootstrap-utilities.min.css" rel="stylesheet">
+<link href="/frontend/web/lib/remixicon/fonts/remixicon.css" rel="stylesheet">
+<link href="/frontend/web/css/style.min.css" rel="stylesheet">
+<link href="/frontend/web/css/responsive.css" rel="stylesheet">
+<link href="/frontend/web/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="/frontend/web/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" rel="stylesheet">
+<link href="/frontend/web/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" rel="stylesheet">
+<link href="/frontend/web/css/comman.css" rel="stylesheet">
+<link href="/frontend/web/css/jquery.multiselect.css" rel="stylesheet">
+<link href="/frontend/web/css/sweetalert.min.css" rel="stylesheet">    <style>
+        .loader {
+            background: rgb(255 255 255 / 80%) url(/frontend/web/loader2.gif);
+            background-position: center;
+            background-size: 5%;
+            background-repeat: no-repeat;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .activeR {
+            color: green !important;
+            font-weight: bold;
+        }
+
+
+
+        #mynavbar .navbar-nav .nav-link {
+            font-size: 15px;
+            color: rgb(255 255 255);
+            padding-right: 0.9rem;
+            padding-left: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-link1 {
+            font-weight: 400;
+            letter-spacing: -.1px;
+            height: 40px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            white-space: nowrap;
+            margin-top: 2px;
+            color: #262626;
+            border-bottom: dotted 1px #a1b1cb;
+        }
+
+        .nav-link1 svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            stroke-width: 1.5px
+        }
+
+        .nav-link1:hover,
+        .nav-link1:focus {
+            background-color: rgb(235 138 43);
+            color: #ffffff;
+        }
+
+        .nav-link1 span {
+            transition: all .3s
+        }
+
+        .ugc-board {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .header-main {
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+        }
+
+        .footer {
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+        }
+
+        .skin-dark .sub-link1 {
+            font-family: 'Roboto', sans-serif !important;
+            font-size: 14px !important;
+        }
+
+        .ri-user-line,
+        .ri-phone-line,
+        .ri-bank-card-line,
+        .ri-award-line,
+        .ri-medal-2-line,
+        .ri-gallery-upload-line,
+        .ri-checkbox-circle-line {
+            margin-right: 4px !important;
+        }
+
+        .col-form-label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px !important;
+        }
+
+        .card {
+            background-color: #fbfcfd;
+            border: none;
+        }
+
+        .navbar-nav {
+            margin-left: -10px;
+        }
+
+        .blink_me {
+            animation: blinker 4s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* label{font-weight:bold} */
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            /*Without this, clicking will make it sticky*/
+            pointer-events: none;
+        }
+    </style>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body class="skin-dark animate">
+    <div class="loader" style="display:none;"></div>
+                    <div class="registration-main">
+            <div class="header-main navbar navbar-expand-md navbar-light bg-light row">
+                <div class="col-sm-4"> <a href="https://www.education.gov.in/" target="_blank"><img class="dept-higher-edu-logo img-fluid" src="/frontend/web/images/left.jpg" alt=""></a> </div>
+                 <div class="col-sm-4 text-center custom-text-logo"> राष्ट्रीय पात्रता सह प्रवेश परीक्षा (स्नातक) - 2024 <br> NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) - 2024 </div>
+                <div class="col-sm-4 text-end"> <a href="https://www.nta.ac.in/" target="_blank"><img class="nta-logo img-fluid" src="/frontend/web/images/nta-logo-new.png" alt=""></a> </div>
+            </div>
+
+            <nav class="navbar navbar-expand-sm navbar-dark topnavigation">
+                <div class="container-fluid">
+                    <a class="navbar-brand test-for" href="javascript:void(0)">NEET (UG) – 2024</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"> <span class="navbar-toggler-icon"></span> </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"> <a class="nav-link " href="/frontend/web/Scorecard/../site/login"><i class="ri-home-8-line"></i> Home</a> </li>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle nav-link" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                                    Information Bulletin
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="https://exams.nta.ac.in/NEET/images/neet-ug-2024-draft-ib-09022024.pdf" target="_blank">Information Bulletin (Hindi)</a></li>
+                                    <li><a class="dropdown-item" href="https://exams.nta.ac.in/NEET/images/neet-ug-2024-draft-ib-09022024.pdf" target="_blank">Information Bulletin (English)</a></li>
+                                </ul>
+                            </div>
+                            <li class="nav-item">
+                                <a class="nav-link userActivityBtn" href="/frontend/web/contactus/index"><i class="ri-question-answer-line"></i> Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="content-body">
+            <!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Score Card List</title>
+    <style>
+        .qr-code {
+            height: 119px;
+            width: 133px;
+        }
+
+        /*this css work on print page default date time and page title print on page */
+        /*@page { size: auto;  margin: 5mm 5mm; }*/
+        /*End of this css work on print page default date time and page title print on page */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 22px;
+            color: #000;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .logo {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .logo_name {
+            float: left;
+            margin-top: 13px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        table tr td {
+            padding: 2px 5px 5px 10px;
+            border: 1px solid;
+        }
+
+        .centerContent {
+            text-align: center;
+        }
+
+        .footer,
+        .header-main,
+        .topnavigation {
+            display: none
+        }
+
+        marquee {
+            display: none;
+        }
+
+        .content-body {
+            padding: 0px !important;
+        }
+
+        @media print {
+            table {
+                page-break-inside: auto;
+                line-height: 13px;
+                font-size: 11px;
+            }
+
+            .no-qrcode {
+                display: none;
+            }
+
+            #printPageButton {
+                display: none;
+            }
+
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto
+            }
+
+            table tr td {
+                padding: 2px 3px 3px 5px;
+                border: 1px solid;
+            }
+
+            #printPageButton {
+                display: none;
+            }
+
+            .midlogo {
+                width: 150px;
+                font-size: 10px;
+                text-align: justify;
+                line-height: 20px;
+            }
+
+            .imp-point ol li {
+                font-size: 10px;
+                line-height: 10px;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            /* For mobile phones: */
+            .score-card2{
+                width:170%;
+            }
+            }
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Libre Barcode 128 Text' rel='stylesheet'>
+</head>
+
+<body>
+    <table class="score-table score-card2" width="100%" border="0" cellspacing="0" cellpadding="0" style=" margin-bottom: 2px;">
+        <tr>
+            <th align="left" scope="col" width="10%"><img src="/frontend/web/images/scorecard_leftimg.png" width="90" style="width: 150px;"></th>
+            <th align="center" scope="col" width="33%" style="font-size:13px;text-align: center;">
+                <span class="midlogo"><strong>
+                NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) - 2024 <BR>Score Card
+                </strong></span>
+            </th>
+            <th align="right" scope="col" width="10%" style="font-size:14px;text-align: right;" width="90">
+                <img width="150" src="/frontend/web/images/scorecard_rightimg.png"/>
+            </th>
+        </tr>
+    </table>
+    <table class="score-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th align="center" scope="col" style="font-size:14px;text-align: center;width:100%;" colspan="2">
+            </th>
+            <th>
+                <input type="button" id="printPageButton" value="Print" onclick="window.print()" />
+            </th>
+        </tr>
+    </table>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border-color: #000;" class="score-table">
+        <tr>
+            <input type="hidden" value="240411179822" id="applicationNumber">
+            <td width="25%"><strong>Roll Number </strong></td>
+            <td width="17%">1205040181</td>
+            <td width="20%"><strong>Application No.</strong></td>
+            <td width="18%">240411179822</td>
+            <td rowspan="5" align="center" width="18%">
+                                <span id="newQRcode">
+                    <div id="qrcode-666a6abd613a1" style="display:inline"></div>                </span>
+            </td>
+            <td rowspan="5" align="center" width="18%">
+                    <img src="https://neetfs.ntaonline.in/Neet2024FileServer/uploads/240411179822/D0001_1708840915.jpg" width="136" height="130" alt="user pic">                </span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" scope="row"><strong>Candidate’s Name</strong></td>
+            <td colspan="3">POREDDY PAVAN KUMAR REDDY</td>
+        </tr>
+        <tr>
+            <td align="left" scope="row"><strong>Mother’s Name</strong></td>
+            <td>POREDDY CHANDRAKALA</td>
+            <td width="20%" scope="row"><strong>Date of Birth (DD/MM/YYYY)</strong></td>
+            <td width="18%">01-04-2007</td>
+        </tr>
+        <tr>
+            <td align="left" scope="row"><strong>Father’s Name</strong></td>
+            <td>POREDDY VASANTHA REDDY</td>
+            <td width="25%" scope="row"><strong>Gender</strong></td>
+            <td width="17%"> MALE</td>
+        </tr>
+        <tr>
+            <td width="25%" scope="row"><strong>Person with Disability (PwD)</strong></td>
+            <td width="17%"> No</td>
+            <td width="20%" scope="row"><strong>Nationality</strong></td>
+            <td width="15%">INDIAN</td>
+        </tr>
+    </table>
+    <table class="score-table score-card2" width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border-color: #000;">
+        <tr>
+            <td width="20%" scope="row" colspan="2" align="left"><strong>Percentile Score Obtained</strong></td>
+            <td width="50%" scope="row" colspan="2" align="right"><small><i>F4DFD836-58DD-D599-26AB-EB8EFE9730DC</i></small></td>
+        </tr>
+        <tr>
+            <td width="20%" scope="row"><strong>Physics</strong></td>
+            <td width="10%" scope="row"> 99.9679852</td>
+            <td width="30%"><strong>Total Marks Obtained (out of 720)</strong></td>
+            <td width="20%" scope="row"> 720</td>
+        </tr>
+        <tr>
+            <td width="20%" align="left" scope="row"><strong>Chemistry</strong></td>
+            <td width="10%">
+             99.8618693            </td>
+            <td width="30%" align="left"><strong>Total Marks Obtained (out of 720) in Words</strong></td>
+            <td width="20%" scope="row">Seven Hundred Twenty Only</td>
+        </tr>
+        <tr>
+
+        <tr>
+            <td width="20%" align="left" scope="row"><strong>Biology (Botany & Zoology)</strong></td>
+            <td width="10%">
+             99.9089272            </td>
+            <td width="10%" align="left"><strong>Total Percentile Score Obtained in Words</strong></td>
+            <td width="40%" scope="row">Ninety Nine Point Nine Nine Seven One Two Eight Five Only</td>
+        </tr>
+
+        <tr>
+            <td width="20%" align="left" scope="row"><strong>Total</strong></td>
+            <td width="10%">
+             99.9971285            </td>
+            <td width="30%" align="left"><strong>NEET All India Rank</strong></td>
+            <td width="20%" scope="row">      1</td>
+        </tr>
+    </table>
+    <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border-color: #000;" class="score-table score-card2">
+        <tr>
+            <td width="20%" align="left" scope="row"><strong>All India Rank for Counselling</strong></td>
+            <td width="20%" align="left" scope="row"><strong>Category</strong></td>
+            <td width="20%" align="left" scope="row"><strong>Category Rank</strong></td>
+            <td width="20%" align="left" scope="row"><strong>PwD</strong></td>
+            <td width="20%" align="left" scope="row"><strong>Category-PwD Rank</strong></td>
+        </tr>
+        <tr>
+            <td width="20%" align="left" scope="row">   1.56</td>
+            <td width="20%" align="left" scope="row">GEN-EWS</td>
+            <td width="20%" align="left" scope="row">      1</td>
+            <td width="20%" align="left" scope="row">No</td>
+            <td width="20%" align="left" scope="row">----</td>
+        </tr>
+    </table>
+    <table class="score-table score-card2" width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border-color: #000;">
+        <tr>
+        <td width="20%" scope="row" colspan="6" align="left"><strong>CUT - OFF PERCENTILE AND SCORE AS PER NMC/DCI/NCISM REGULATIONS</strong></td>
+        <td width="50%" scope="row" colspan="2" align="right"><small><i>NTA781899922</i></i></small></td>
+
+
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>Category</strong></td>
+            <td width="15%" align="left" scope="row"><strong>Cut off Percentile</strong></td>
+            <td width="15%" align="left" scope="row"><strong>Cut off Score</strong></td>
+            <td width="10%" align="left" scope="row"><strong>No. of Candidates</strong></td>
+            <td width="10%" align="left" scope="row"><strong>Category</strong></td>
+            <td width="15%" align="left" scope="row"><strong>Cut off Percentile</strong></td>
+            <td width="15%" align="left" scope="row"><strong>Cut off Score</strong></td>
+            <td width="10%" align="left" scope="row"><strong>No. of Candidates</strong></td>
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>UR/EWS</strong></td>
+            <td width="15%" align="left" scope="row">50<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">720-164</td>
+            <td width="10%" align="left" scope="row">1165904</td>
+            <td width="10%" align="left" scope="row">UR/EWS-PwD</td>
+            <td width="15%" align="left" scope="row">45<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">163-146</td>
+            <td width="10%" align="left" scope="row">455</td>
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>OBC</strong></td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">163-129</td>
+            <td width="10%" align="left" scope="row">100769</td>
+            <td width="10%" align="left" scope="row">OBC-PwD</td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">145-129</td>
+            <td width="10%" align="left" scope="row">270</td>
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>SC</strong></td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">163-129</td>
+            <td width="10%" align="left" scope="row">34326</td>
+            <td width="10%" align="left" scope="row">SC-PwD</td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">145-129</td>
+            <td width="10%" align="left" scope="row">55</td>
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>ST</strong></td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">163-129</td>
+            <td width="10%" align="left" scope="row">14478</td>
+            <td width="10%" align="left" scope="row">ST-PwD</td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">141-129</td>
+            <td width="10%" align="left" scope="row">11</td>
+        </tr>
+    </table>
+    <div style="float:left;margin-top:15px;font-size:12px;"><strong>DATE OF DECLARATION OF RESULT: </strong>  04.06.2024</div>
+    <div style="float:right;margin-top:15px;"><img src="/frontend/web/images/director.jpg" width="100" height="30"> <br /><b>Senior Director,NTA</b> &nbsp;</div>
+    <br><br>
+    <div style="float: left; margin-top:15px; font-size: 12px;color:red"><strong>IMPORTANT INFORMATION: </strong></div>
+    <br><br>
+    <div class="imp-point score-table score-card2">
+        <ol style="text-align:justify;font-size:9px;line-height:10px;">
+            <li>Candidate particulars have been indicated as mentioned by her/him in the online Application Form, which is subject to verification by the admitting authorities.</li>
+            <li>Candidate, if found submitting wrong information or <b>tampering with this Score Card at any stage,</b> will be considered as using unfair practices. <b>NTA will cancel the candidature and take legal action as per applicable laws.</b></li>
+            <li>Under the UR Category, the candidates from other categories i.e. General-EWS, OBC, SC, ST, and PwD but meeting UR Cut off Percentile are also included.</li>
+            <li>In case of two or more candidates obtaining equal marks in NEET (UG) - 2024, the inter-se-merit of such candidates has been determined as per Chapter 15 {15.2} of Information Bulletin of NEET (UG) -2024 to generate NEET All India Rank. </li>
+            <li>NTA has declared only NEET All India Rank and All India Rank for Counselling. Counselling Authorities will invite applications from the successful candidates and prepare their own merit list as per their rules based on the All India Rank. Candidates may apply to the designated Counselling Authorities as per their eligibility. NTA has no role to play in this exercise.</li>
+            <li>Details of the various Counselling Authorities are given in Appendix II of the Information Bulletin. The same may also be confirmed from respective websites. Although, due care has been taken to put their correct addresses and contact details, NTA is not responsible for any changes therein.</li>
+            <li>In the NEET (UG) – 2024 result, the category of the candidates is as per details submitted by them in the online Application Form. In case, if the category of candidate falls under any other category in the State Category List, candidates may apply to designated Counselling Authorities with their category as per State Category List and designated Counselling Authorities will verify the same. The same is the case with domicile. Domicile will be governed by respective admitting authority rules. <b>NTA will NOT change any details of the candidates after the declaration of the result</b>.</li>
+            <li>All candidates are advised to remain in touch with the websites of Counselling Authorities for updates.</li>
+            <li>Qualified Candidates having Benchmark Disabilities may refer to Information Bulletin specifically Chapter 6 {6.3, 6.7}. It may be noted that the eligibility in the examination under the category "Persons with Disability" is purely provisional to appear in the examination and does NOT guarantee a seat to the candidate under the respective category. The candidature for admission to MBBS program under PwBD category under various colleges will be governed as per relevant NMC guidelines which are given under Appendix-H1 of Guidelines regarding Admission of Students with "Specified Disabilities '' under the Right of Persons with Disabilities Act, 2016 with respect to admission in MBBS course during post-examination and counselling process issued on 01.08.2023.</li>
+            <li>Qualifying in NEET (UG) - 2024 does not confer any right for admission to Medical/Dental Colleges. Selection of qualified candidates in NEET (UG) - 2024 for admission to Medical/Dental Colleges is subject to merit position and satisfying the admission criteria as laid down in the rules of the Central Government/State Government /Universities / Institutions concerned.</li>
+        </ol>
+    </div>
+
+    <div style="float: left; font-size: 10px;color:red;margin-top: -15px;"><strong>Note: </strong></div><br>
+    <div class="imp-point score-table score-card2" style="margin-top:-14px;">
+        <ol style="font-size:9px;line-height:10px;">
+            <li><b>Percentile Scores</b> are based on the relative performance of all those who appeared for the examination.</li>
+            <li><b>The Percentile scores of a Candidate have been calculated as follows:</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b style="text-decoration: underline;">100 X Number of candidates appeared in the examination with raw score LESS than the candidate</b><br><b>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total number of candidates who appeared in the examination.</b>
+            </li>
+            <li><b>The Percentile Score</b> is NOT the same as the percentage of marks obtained.</li>
+            <li><b>Total Percentile Score</b> is <b>NOT</b> an aggregate or average of the Percentile Scores of individual subjects.</li>
+        </ol>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        //cntrl + p disable
+        $(document).keydown(function(event) {
+            if (event.ctrlKey == true && (event.which == '80')) {
+                event.preventDefault();
+            }
+        });
+
+        $("#printPageButton").click(function() {
+        
+            var getQRText = document.querySelector("#newQRcode");
+            var barcodeValue = getQRText.querySelector("div").innerHTML;
+            var getImgText = $('#emptyImage').html();
+            if (($.trim().barcodeValue === "") || ($.trim().getImgText == "")) {
+                alert("Image / Application Number QR Section is blank! Please regenerate your Score Card.");
+                window.location.href = "/frontend/web/scorecard/index";
+                return;
+            }
+            //    For log generate
+            var applicationNumber = $('#applicationNumber').val();
+            setTimeout(function() {
+                $.ajax({
+                    url: 'print-click',
+                    type: 'POST',
+                    data: {
+                        applicationNumber: applicationNumber,
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }, 2000)
+            $("#print-btn-show").click();
+        });
+
+        setTimeout(() => {
+            var getQRTextOut = document.querySelector("#newQRcode");
+            var barcodeValueOut = getQRTextOut.querySelector("div").innerHTML;
+            var getImgText = $('#emptyImage').html();
+            if (($.trim().barcodeValueOut === "") || ($.trim().getImgText == "")) {
+                alert("Image / Application Number QR Section is blank!, Please regenerate your Score Card.");
+                window.location.href = "/frontend/web/scorecard/index";
+                var divs = document.querySelectorAll('.score-table');
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].classList.add('no-qrcode');
+                }
+                return;
+            }
+        }, 2000);
+    });
+</script>
+
+</html>
+        </div>
+        <!-- content-body -->
+        </div>
+    
+    <div class="footer row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="#"><img class="nta-logo img-fluid" src="/frontend/web/images/nta-logo-new.webp" alt=""></a>
+        </div>
+    </div>
+
+  <!-- Modal Aadhaar Reverify Code-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please Fill Aadhaar Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="contact-form" action="/frontend/web/scorecard/index" method="post">
+<input type="hidden" name="_csrf-frontend" value="XQZPy7YOEl6Gn11L7hFJDQhPQSMXVMR9eqgLLzCWlIcEdCmc_XhGbtmvCCOvVx1CQD55UUEmlQkbnT5OfsL20A==">                    <span id="aadhaarlogin">
+                        <div class="row mb-3 AadhaarNumberhide">
+                            <label class="col-sm-4 col-form-label text-end">Aadhaar Number<span class="astric-sign">*</span></label>
+                            <div class="col-sm-5">
+                                <input type="text" name="AadhaarNumber" placeholder='Enter Aadhaar Number' class='form-control form-control-sm' id='AadhaarNumber' minlength="12" maxlength="12" onkeypress="return blockSpecialChar(event,'numeric')" autocomplete='off'>
+                            </div>
+                        </div>
+                        <div class="row mb-3" id="divMessage" style="display:none;">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5">
+                                <span id="spnResult" style="color: green; font-weight: bold; font-size: 17px;"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3 AadhaarNumberhide">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5">
+                                <span id="btnGenerateOTP" class="btn btn-sm btn-warning" onclick="onGenerateOTPRe()">Generate OTP</span>
+                            </div>
+                        </div>
+                        <div class="row mb-3" style="display:none;" id="otpdiv">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">OTP<span class="astric-sign">*</span></label>
+                            <div class="col-sm-5">
+                                <input type="text" name="Otp" placeholder='Enter OTP' class='form-control form-control-sm' id='Otp' minlength="6" maxlength="6" onkeypress="return blockSpecialChar(event,'numeric')" autocomplete='off'>
+
+                                <label class="control-label" style="text-align:left;margin-left:5px;font-size:14px;font-weight:bold">Please validate the OTP within 10 minutes of receiving it</label>
+                            </div>
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5"><br>
+                                <span id="btnValidateOTP" class="btn btn-sm btn-warning" disabled onclick="onValidateOtpRe()">Validate OTP</span>
+                            </div>
+                        </div>
+                    </span>
+                    </form>                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <input type="hidden" name="ApplicationNo" id="ApplicationNo" value="">
+   <input type="hidden" name="ReferenceID" id="ReferenceID" value="">
+    <script>
+        $(document).ready(function() {
+             if ($("#ReferenceID").val() == '0') {
+                $('#exampleModal').modal('show');   
+                setInterval(function() {$('#exampleModal').modal('show');}, 10000);            
+            }
+            
+        });
+        $(".close").on('click', function() {
+            $("#exampleModal").modal('hide');
+        });
+        var otpTxnId = null;
+
+        function onGenerateOTPRe() {
+
+            var aadhaarNumber = $('#AadhaarNumber').val();
+            if (aadhaarNumber.trim().length !== 12) {
+                alert("Please enter valid aadhaar number")
+                $('#AadhaarNumber').focus();
+                return;
+            }
+            $.ajax({
+                type: 'POST',
+                url: "/frontend/web/aadhaarreverify/generateotp",
+                data: {
+                    AADHAARNUMBER: aadhaarNumber
+                },
+                "beforeSend": function(response) {
+                    SimpleLoading.start();
+                },
+                success: function(data) {
+                    var resp = JSON.parse(data);
+                    SimpleLoading.stop();
+                    if (resp.error) {
+                        $('#spnResult').html(resp.errorMessage);
+                        $('#spnResult').css("color", "red");
+                        $('#divMessage').show();
+                        $("#otpdiv").hide();
+                        $(".AadhaarNumberhide").show();
+                        return false;
+                    }
+
+                    otpTxnId = resp.otpTxnId;
+                    // console.log(otpTxnId);
+                    var message = "OTP send successfully";
+                    var mobileAdded = false;
+                    if (resp.maskedMobile !== undefined && resp.maskedMobile !== "" && resp.maskedMobile !== "NA" && resp.maskedMobile !== null) {
+                        message = message + " to " + resp.maskedMobile;
+                        mobileAdded = true;
+                    }
+
+                    if (resp.maskedEmail !== undefined && resp.maskedEmail !== "" && resp.maskedEmail !== null) {
+                        if (mobileAdded) {
+                            message = message + " and";
+                        } else {
+                            message = message + " to";
+                        }
+
+                        message = message + " " + resp.maskedEmail;
+                    }
+
+
+                    $('#spnResult').html(message);
+                    $('#spnResult').css("color", "green");
+                    $('#divMessage').show();
+                    $("#otpdiv").show();
+                    $(".AadhaarNumberhide").hide();
+                    $('#btnGenerateOTP').attr("disabled", true);
+                    $('#btnValidateOTP').removeAttr("disabled");
+                    $('#btnCancel').removeAttr("disabled");
+                    $('#Otp').removeAttr("disabled");
+                },
+                error: function(xhr, textStatus, error) {
+                    $('#spnResult').html(error.message);
+                    $('#spnResult').css("color", "red");
+                    $('#divMessage').show();
+                    return false;
+                }
+            });
+        }
+
+        function onValidateOtpRe() {
+            var aadhaarNumber = $('#AadhaarNumber').val();
+            var otpValue = $('#Otp').val();
+            if (otpValue == '' || otpValue.trim().length !== 6) {
+                $('#Otp').focus();
+                return false;
+            }
+            $.ajax({
+                type: 'POST',
+                url: "/frontend/web/aadhaarreverify/validateotp",
+                data: {
+                    AADHAARNUMBER: aadhaarNumber,
+                    OTPVALUE: otpValue,
+                    OTPTXNID: otpTxnId,
+                },
+                "beforeSend": function(response) {
+                    SimpleLoading.start();
+                },
+                success: function(data) {
+                    var resp = JSON.parse(data);
+                    console.log(resp);
+                    if (resp.error) {
+                        $('#spnResult').html(resp.errorMessage);
+                        $('#spnResult').css("color", "red");
+                        $('#divMessage').show();
+                        SimpleLoading.stop();
+                        return false;
+                    }
+                },
+                error: function(xhr, textStatus, error) {
+                    $('#spnResult').html(error.message);
+                    $('#spnResult').css("color", "red");
+                    $('#divMessage').show();
+                    SimpleLoading.stop();
+                    return false;
+                }
+            });
+        }
+    </script>
+
+    <script>
+       $(document).ready(function() {
+           const channel = new BroadcastChannel('tab');
+           channel.postMessage('another-tab');
+           channel.addEventListener('message', (msg) => {
+               if (msg.data === 'another-tab') {
+                   // message received from 2nd tab
+                   alert('Cannot open multiple instances.You are logged out!');
+                   $.ajax({
+                       type: "post",
+                       url: '',
+                       data: {},
+                       cache: false,
+                       success: function(data) {
+
+                       }
+                   });
+                   window.location.href = "";
+               }
+           });
+       });
+
+        		document.onkeydown = function(e) {
+        		  if(event.keyCode == 123) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		}
+
+        		document.addEventListener('contextmenu', function(e){
+        		e.preventDefault();
+        		});
+    </script>
+    <script src="/frontend/web/assets/82326aec/jquery.js"></script>
+<script src="/frontend/web/assets/673f9832/yii.js"></script>
+<script src="/frontend/web/assets/e0b9970e/js/kjua-0.9.0.min.js"></script>
+<script src="/frontend/web/assets/3006d9a9/js/simple-loading.min.js"></script>
+<script src="/frontend/web/js/demo.js"></script>
+<script src="/frontend/web/js/jquery.smartWizard.min.js"></script>
+<script src="/frontend/web/js/jquery.image-popup.js"></script>
+<script src="/frontend/web/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/frontend/web/lib/feathericons/feather.min.js"></script>
+<script src="/frontend/web/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="/frontend/web/js/script.js"></script>
+<script src="/frontend/web/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/frontend/web/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/frontend/web/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/frontend/web/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="/frontend/web/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/frontend/web/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="/frontend/web/js/comman.js"></script>
+<script src="/frontend/web/js/bootstrap.bundle.min.js"></script>
+<script src="/frontend/web/js/jquery.multiselect.js"></script>
+<script src="/frontend/web/js/sweetalert2.all.min.js"></script>
+<script src="/frontend/web/assets/673f9832/yii.activeForm.js"></script>
+<script>jQuery(function ($) {
+
+// Handle QRCode for div qrcode-666a6abd613a1<F5>
+var cfg = {"text":"https://neet.ntaonline.in/frontend/web/scorecard/resultqr?applicationNumber=240411179822&apprefno=NTA781899922","render":"image","crisp":false,"minVersion":1,"ecLevel":"M","size":130,"ratio":null,"fill":"#000000","back":"#fff","rounded":50,"quiet":0,"mode":"plain","mSize":10,"mPosX":50,"mPosY":50,"label":"no label","fontname":"Arial","fontcolor":"#333","image":null};
+$('#qrcode-666a6abd613a1').kjua(cfg);
+jQuery('#contact-form').yiiActiveForm([], {"errorSummary":".alert.alert-danger","errorCssClass":"is-invalid","successCssClass":"is-valid","validationStateOn":"input"});
+
+        $(document).ready(function () {
+            $("#refresh_captcha").click(function (event) {
+                event.preventDefault();
+                $(this).parent().children('img').click();
+                $("#candidate-verifycode").val("");
+                $("#candidate-verifycode").removeClass("is-valid")
+            })
+        });
+
+        $(document).ready(function (){
+            $(".form-control").addClass("form-control-sm");
+            $("#refresh_captcha").click();
+        });
+
+        $(document).ready(function () {
+            $(".userActivityBtn").click(function (event) {
+                console.log("test-main.php");
+                //event.preventDefault()
+              var currentURL   = $(location).attr("href");
+                $.ajax({
+                  url: "/frontend/web/useracitivity/useract" ,
+                  type: "post",
+                  data: {
+                        moduleName: $(this).attr("data-modulename"),  
+                        activityName: $(this).attr("data-activityname"), 
+                        url: currentURL,  
+                        _csrf : "<?=Yii::$app->request->getCsrfToken()?>"
+                      },
+                  success: function (data) {
+                     console.log(data);
+                  }
+              });
+            })
+          });
+
+      
+});</script>
+    </body>
+
+</html>
